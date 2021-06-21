@@ -32,5 +32,16 @@ def random_number_plus():
         return f'Your argument has to be a number! ({argument} is an invalid argument)', 400
 
 
+@app.route("/model")
+def my_easy_model():
+    """Return the output of the model given the input."""
+    argument = request.args.get('input')
+    try:
+        output = model.my_difficult_model(argument)
+    except TypeError as exc:
+        return f'Internal server error: {exc}', 500
+    return f'The output given the argument "{argument}": {output}'
+
+
 if __name__ == "__main__":
     app.run(debug=True)
