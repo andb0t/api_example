@@ -21,7 +21,7 @@ def random_number():
     return f'Your random number: {number}'
 
 
-@app.route("/random/plus")
+@app.route("/random/plus")  # example: /random/plus?input=2
 def random_number_plus():
     """Return a random number + the input."""
     argument = request.args.get('input')
@@ -32,7 +32,7 @@ def random_number_plus():
         return f'Your argument has to be a number! ({argument} is an invalid argument)', 400
 
 
-@app.route("/model")
+@app.route("/model")  # example: /model?input=2
 def my_easy_model():
     """Return the output of the model given the input."""
     argument = request.args.get('input')
