@@ -14,5 +14,12 @@ def home():
     return 'Hello!'
 
 
+@app.route("/random/")
+def random_number():
+    """Return a random number."""
+    number = random.random()
+    return f'Your random number: {number}'
+
+
 if __name__ == "__main__":
     app.run(debug=True)
