@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     """Greet the course."""
-    return 'Hello Back Belt Course!'
+    return 'Hello!'
 
 
 if __name__ == "__main__":
