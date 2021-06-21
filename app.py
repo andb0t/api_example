@@ -36,7 +36,10 @@ def random_number_plus():
 def my_easy_model():
     """Return the output of the model given the input."""
     argument = request.args.get('input')
-    output = model.my_difficult_model(argument)
+    try:
+        output = model.my_difficult_model(argument)
+    except TypeError as exc:
+        return f'Internal server error: {exc}', 500
     return f'The output given the argument "{argument}": {output}'
 
 
